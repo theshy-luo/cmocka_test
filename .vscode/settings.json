@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "cmocka_unit_test_setup_teardown_demo.h": "c",
+        "check_return_demo.h": "c",
+        "cmocka_demo_include.h": "c",
+        "cmocka.h": "c",
+        "setjmp.h": "c",
+        "stdio.h": "c",
+        "check_demo.h": "c",
+        "check_mock_fun_demo.h": "c",
+        "dynamic_memory_demo.h": "c",
+        "stdarg.h": "c"
+    }
+}

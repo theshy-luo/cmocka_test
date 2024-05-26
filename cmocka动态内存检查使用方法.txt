@@ -1,0 +1,10 @@
+CMocka 框架提供了动态内存检测功能，用于测试待测模块的内存溢出（越界访问）、内存泄漏（未释放内存）问题。CMocka 框架会跟踪所有使用 test_*() 接口分配的内存块，每次使用 test_free() 释放内存块，都会检查内存块是否有内存溢出，一旦发现就会将测试用例标记为失败，并终止当前测试用例。当测试用例执行完成时，CMocka 框架内部会检测是否有内存块还未释放（内存泄漏），一旦发现也会将测试用例标记为失败。
+
+因此，你需要做的就是将待测模块代码中的 malloc、realloc、calloc、free 分别替换成CMocka框架提供的 test_malloc、test_realloc、test_calloc、test_free 接口。可以使用以下代码替换：
+
+#ifdef UNIT_TESTING
+#define malloc test_malloc
+#define realloc test_realloc
+#define calloc test_calloc
+#define free test_free
+#endif
